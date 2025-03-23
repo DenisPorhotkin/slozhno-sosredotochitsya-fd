@@ -1,4 +1,13 @@
-/*
-  Переменные для вашего проекта
-  и их переопределение под различные устройства
-*/
+:root {
+  --font-family_normal: 'IBM Plex mono', sans-serif;
+  --bg_page: url(../images/cover-image-dark.png); /* фон страницы (по умолчанию dark) */
+  --ft_color: #F1B2CE; /* цвет шрифта на странице (по умолчанию для темы - dark) */
+  --bg_color: #000028; /* цвет фона на странице (по умолчанию для темы - dark) */
+  --decor-general: #FF0070; /* цвет декора на странице неон (фокус, цвет уголков и тд.) */
+  --title-color: #DB00FF; /* цвет h1 в теме dark */
+  --title-shd-color: #FF0070; /* цвет тени h1 в теме dark */
+  --title-font-decor: #000028;
+  --title-bg-decor: #FF0070;
+  --padding-gd_lt_rt: 10px; /* падинги для гридов левый и правый */
+  --padding-gd_top: 50px; /* верхний паддинг для гридов*/
+}
