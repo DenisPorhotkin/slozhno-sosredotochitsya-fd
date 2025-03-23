@@ -16,6 +16,7 @@
   grid-template-rows: auto auto auto auto 1fr;
   padding: var(--padding-gd_lt_rt);
   height: 100vh;
+  min-height: 668px;
 }
 
 /* декор: правый верхний уголок */
@@ -57,7 +58,7 @@
   padding: 0;
 }
 
-/* скрыто для скриндера */
+/* скрыто для глаз */
 .visually-hidden {
   inline-size: 1px;
   block-size: 1px;
@@ -315,6 +316,7 @@ main p {
   padding: 0 var(--padding-gd_lt_rt) var(--padding-gd_lt_rt);
   padding-top: var(--padding-gd_lt_rt);
   height: 100vh;
+  min-height: 668px;
 }
 
 /* стиль для focus в footer */
@@ -332,6 +334,10 @@ main p {
   :root {
     --padding-gd_lt_rt: 20px;
     --padding-gd_top: 80px;
+  }
+
+  .header {
+    min-height: 1024px;
   }
 
   .header__theme-menu {
@@ -376,7 +382,7 @@ main p {
     grid-row: 1;
   }
 
-  .main_section_second div {
+  .main_section_second article {
     grid-column: span 2;
   }
 
@@ -422,6 +428,9 @@ main p {
   .main_section_fourth .gallery__item:nth-child(6) {
     grid-column: span 2;
   }
+  .footer {
+    min-height: 1024px;
+  }
 
   .footer_title {
     font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
@@ -429,6 +438,10 @@ main p {
 }
 
 @media (width >= 1024px) {
+  .header {
+    min-height: 768px;
+  }
+
   .header__theme-menu {
     justify-self: center;
     grid-row: 2;
@@ -469,8 +482,12 @@ main p {
     grid-column: 1;
   }
 
-  .main_section_second div {
+  .main_section_second article {
     grid-row: 2;
     grid-column: auto;
+  }
+
+  .footer {
+    min-height: 768px;
   }
 }
