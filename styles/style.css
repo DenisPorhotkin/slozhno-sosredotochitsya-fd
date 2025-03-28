@@ -198,6 +198,7 @@
 
 /* четвёртая область основного контента с картинками */
 .section-img {
+  --padding-gd_top: 50px;
   line-height: 0;
   padding: var(--padding-gd_top) var(--padding-gd_lt_rt) 40px;
   gap: var(--padding-gd_lt_rt);
