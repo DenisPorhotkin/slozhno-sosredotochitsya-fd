@@ -185,6 +185,11 @@
   gap: 20px;
 }
 
+/* первая секция от футера, падинг отличается от всех */
+.section-why {
+  --padding-gd_top: 40px;
+}
+
 /* секция для  карточек section-causes*/
 .text-bloks {
   display: grid;
@@ -198,7 +203,6 @@
 
 /* четвёртая область основного контента с картинками */
 .section-img {
-  --padding-gd_top: 50px;
   line-height: 0;
   padding: var(--padding-gd_top) var(--padding-gd_lt_rt) 40px;
   gap: var(--padding-gd_lt_rt);
