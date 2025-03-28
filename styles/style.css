@@ -1,6 +1,6 @@
 /* по умолчанию тема dark */
 
-/* общие настройки для мамы-грида */
+/* общие настройки */
 .page {
   background-image: var(--bg_page);
   background-size: cover;
@@ -13,7 +13,7 @@
   display: grid;
   position: relative;
   grid-template-columns: 1fr;
-  grid-template-rows: auto auto auto auto 1fr;
+  grid-template-rows: auto 1fr minmax(7.25rem, auto) 1fr;
   padding: var(--padding-gd_lt_rt);
   height: 100vh;
   min-height: 668px;
@@ -21,7 +21,7 @@
 
 /* декор: правый верхний уголок */
 .decorated-zone::before {
-  content: '';
+  content: "";
   position: absolute;
   right: var(--padding-gd_lt_rt);
   top: var(--padding-gd_lt_rt);
@@ -34,7 +34,7 @@
 
 /* декор: левый нижний уголок */
 .decorated-zone::after {
-  content: '';
+  content: "";
   position: absolute;
   left: var(--padding-gd_lt_rt);
   bottom: var(--padding-gd_lt_rt);
@@ -56,15 +56,6 @@
   justify-self: end;
   grid-row: 1;
   padding: 0;
-}
-
-/* скрыто для глаз */
-.visually-hidden {
-  inline-size: 1px;
-  block-size: 1px;
-  overflow: visible;
-  clip: rect(0 0 0 0);
-  white-space: nowrap;
 }
 
 /* декор в шапке в виде надписи REC */
@@ -95,7 +86,7 @@
 /* расположим меню в шапке */
 .header__theme-menu {
   justify-self: end;
-  padding-top: 65px;
+  align-self: center;
 }
 
 /*создадим основной стиль меню */
@@ -113,9 +104,10 @@
   text-align: center;
   min-width: 70px;
   min-height: 25px;
+  transition: outline 0.9s;
 }
 
- /* сбросим стили для кнопки */
+/* сбросим стили для кнопки */
 .header__theme-menu-button {
   background: none;
   border: none;
@@ -128,7 +120,7 @@
   vertical-align: middle;
 }
 
- /* активная кнопка */
+/* активная кнопка */
 .header__theme-menu-button_active {
   outline: 1px solid var(--decor-general);
   pointer-events: none;
@@ -141,7 +133,12 @@
 
 /* подчеркивание при фокусе */
 .header__theme-menu-item:has(:not(:active, :hover):focus-visible) {
-  background: linear-gradient(to right,var(--decor-general), var(--decor-general)) bottom left no-repeat;
+  background: linear-gradient(
+      to right,
+      var(--decor-general),
+      var(--decor-general)
+    )
+    bottom left no-repeat;
   background-size: 120% 1px;
 }
 
@@ -154,13 +151,15 @@
   text-shadow: 4px 4px 0 var(--title-shd-color);
   font-weight: 700;
   line-height: 0.839;
-  padding-top: 65px;
+  align-self: center;
+  justify-self: left;
 }
 
 /* параграф в шапке */
 .header-title_text {
-  margin-top: 52px;
   max-width: 364px;
+  max-height: fit-content;
+  align-self: center;
 }
 
 /* стиль параграфа в шапке и др. подобных */
@@ -176,48 +175,35 @@
   padding: 0;
 }
 
-/* первая область основного контента */
-.main_section_first {
-  --padding-gd_top: 40px;
+/* общее для всех секций */
+.content-section {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: repeat(3, auto);
+  grid-template-rows: auto;
   flex-direction: column;
   padding: var(--padding-gd_top) var(--padding-gd_lt_rt) 0;
   gap: 20px;
 }
 
-/* вторая область основного контента */
-.main_section_second {
+/* секция для  карточек section-causes*/
+.text-bloks {
   display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat(4, auto);
-  flex-direction: column;
-  padding: var(--padding-gd_top) var(--padding-gd_lt_rt) 0;
+  grid-column: 1 / -1;
   gap: 20px;
 }
 
-/* третья область основного контента */
-.main_section_third {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat(7, auto);
-  flex-direction: column;
-  padding: var(--padding-gd_top) var(--padding-gd_lt_rt) 0;
-  gap: 20px;
+.section-advices div:not(:first-child) {
+  padding-top: 20px;
 }
 
 /* четвёртая область основного контента с картинками */
-.main_section_fourth {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat(6, auto);
-  grid-auto-flow: dense;
+.section-img {
+  line-height: 0;
   padding: var(--padding-gd_top) var(--padding-gd_lt_rt) 40px;
   gap: var(--padding-gd_lt_rt);
 }
 
-/* заголовки h2 */
+/* заголовки h2, h3, h4 */
 .main_section_title {
   font-family: var(--font-family_normal);
   font-size: 18px;
@@ -226,31 +212,22 @@
   color: var(--decor-general);
 }
 
-/* заголовки h3 */
-.main_section_title_h3 {
-  font-family: var(--font-family_normal);
-  font-size: 18px;
-  font-weight: 700;
-  line-height: 1.3;
+/* доролнения заголовка h3 */
+.main_section_subtitle {
   color: var(--title-font-decor);
   background-color: var(--title-bg-decor);
 }
 
-/* заголовки h4 в третьей области*/
-.main_section_title_third_h4 {
-  font-family: var(--font-family_normal);
-  font-size: 18px;
+/* дополнение заголовка h4 в третьей области*/
+.main_section_article_subtitle {
   font-weight: 400;
-  line-height: 1.3;
   color: var(--title-font-decor);
   background-color: var(--title-bg-decor);
-  word-spacing: 4px;
 }
 
 /* настройки для секции изображений */
 .gallery__item {
   box-sizing: border-box;
-  min-block-size: 4.3em;
   margin: 0;
 }
 
@@ -278,12 +255,13 @@ main p {
   text-decoration: none;
   position: relative;
   display: inline-block;
-  outline: none;
+  outline: 1px solid color-mix(in srgb, var(--ft_color), transparent 100%);
+  transition: outline .3s;
 }
 
- /* Подчеркивание с помощью псевдоэлемента */
+/* Подчеркивание с помощью псевдоэлемента */
 .custom-link::after {
-  content:'';
+  content: "";
   position: absolute;
   left: 0;
   bottom: 2px;
@@ -300,7 +278,7 @@ main p {
 
 /* Показываем рамку при фокусе */
 .custom-link:focus-visible {
-  outline: 1px solid var(--ft_color);
+  outline: 1px solid color-mix(in srgb, var(--ft_color), transparent 0%);
   padding: 0;
   margin: 0;
 }
@@ -340,94 +318,69 @@ main p {
     min-height: 1024px;
   }
 
-  .header__theme-menu {
-    padding-top: 172px;
-  }
-
   .title {
-    padding-top: 173px;
     inset-inline-end: var(--padding-gd_lt_rt);
     font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
   }
-  
-  .header-title_text {
-    margin-top: 161px;
-  }
 
-  .main_section_first {
+  .section-why {
     --padding-gd_top: 60px;
-    display: grid;
     grid-template-columns: 1fr 2fr;
     grid-template-rows: auto auto;
-    flex-direction: column;
-    padding: var(--padding-gd_top) var(--padding-gd_lt_rt) 0;
-    gap: 20px;
   }
-  
-  .main_section_first h2 {
+
+  .section-why h2 {
     grid-column: 1;
     grid-row: span 2;
   }
 
-  .main_section_second {
-    display: grid;
+  .section-causes {
     grid-template-columns: 1fr 2fr;
-    grid-template-rows: repeat(4, auto);
-    flex-direction: row;
-    padding: var(--padding-gd_top) var(--padding-gd_lt_rt) 0;
-    gap: 20px;
   }
 
-  .main_section_second h2 {
+  .section-causes h2 {
     grid-row: 1;
   }
 
-  .main_section_second article {
+  .section-causes article {
     grid-column: span 2;
   }
 
-  .main_section_third {
-    display: grid;
+  .section-advices {
     grid-template-columns: 1fr 2fr;
-    grid-template-rows: repeat(6, auto);
-    flex-direction: column;
-    padding: var(--padding-gd_top) var(--padding-gd_lt_rt) 0;
-    gap: 20px;
   }
 
-  .main_section_third  h2 {
+  .section-advices h2 {
     grid-column: 1;
-    grid-row: span 6;
+    grid-row: span 2;
   }
 
-  .main_section_fourth {
-    display: grid;
+  .section-img {
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: repeat(4, auto);
-    grid-auto-flow: dense;
     padding: var(--padding-gd_top) var(--padding-gd_lt_rt) 60px;
-    gap: var(--padding-gd_lt_rt);
   }
 
-  .main_section_fourth h3 {
+  .section-img h3 {
     grid-column: span 3;
   }
 
-  .main_section_fourth .gallery__item:nth-child(2) {
+  .section-img .gallery__item:nth-child(2) {
     grid-column: span 2;
   }
 
-  .main_section_fourth .gallery__item:nth-child(3) {
+  .section-img .gallery__item:nth-child(3) {
     grid-row: span 2;
   }
 
-  .main_section_fourth .gallery__item:nth-child(4) {
+  .section-img .gallery__item:nth-child(4) {
     grid-row: span 2;
   }
 
-  .main_section_fourth .gallery__item:nth-child(6) {
+  .section-img .gallery__item:nth-child(6) {
     grid-column: span 2;
   }
+
   .footer {
     min-height: 1024px;
   }
@@ -446,6 +399,7 @@ main p {
     justify-self: center;
     grid-row: 2;
     padding: 0;
+    align-self: start;
   }
 
   .header__theme-menu-list {
@@ -459,34 +413,36 @@ main p {
   }
 
   .title {
-    padding-top: 273px;
     inset-inline-end: var(--padding-gd_lt_rt);
   }
-  
+
   .header-title_text {
-    margin-top: 114px;
     max-width: 491px;
   }
 
-  .main_section_second {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: auto 1fr;
-    flex-direction: row;
-    padding: var(--padding-gd_top) var(--padding-gd_lt_rt) 0;
-    gap: 20px;
+  .section-why {
+    grid-template-columns: 1fr 2.06fr;
   }
 
-  .main_section_second h2 {
+  .section-causes {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .text-bloks {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  
+  .section-causes h2 {
     grid-row: 1;
     grid-column: 1;
   }
 
-  .main_section_second article {
-    grid-row: 2;
+  .section-causes article {
     grid-column: auto;
   }
-
+  .section-advices {
+    grid-template-columns: 1fr 2.06fr;
+  }
   .footer {
     min-height: 768px;
   }

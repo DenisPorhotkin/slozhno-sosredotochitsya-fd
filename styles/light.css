@@ -12,12 +12,8 @@
   background-color: #FFF1F7;
 }
 
-.theme-light .visually-hidden {
-  inline-size: 1px;
-  block-size: 1px;
+.theme-light .decor_rec {
   overflow: hidden;
-  clip: rect(0 0 0 0);
-  white-space: nowrap;
 }
 
 @media (prefers-color-scheme: light) {
@@ -35,15 +31,10 @@
       background-color: #FFF1F7;
   }
 
-  .visually-hidden {
-    inline-size: 1px;
-    block-size: 1px;
+  .decor_rec {
     overflow: hidden;
-    clip: rect(0 0 0 0);
-    white-space: nowrap;
   }
 }
-
 @media (width >= 1024px) {
   .footer_title {
     --title-shd-color: #FF0070;;

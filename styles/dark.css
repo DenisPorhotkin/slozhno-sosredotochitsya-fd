@@ -12,10 +12,6 @@
   background-color: var(--bg_color);
 }
 
-.theme-dark .visually-hidden {
-  inline-size: 1px;
-  block-size: 1px;
+.theme-dark .decor_rec {
   overflow: visible;
-  clip: rect(0 0 0 0);
-  white-space: nowrap;
 }

@@ -1,5 +1,5 @@
 :root {
-  --font-family_normal: 'IBM Plex mono', sans-serif;
+  --font-family_normal: 'IBM Plex mono', Arial, sans-serif;
   --bg_page: url(../images/cover-image-dark.png); /* фон страницы (по умолчанию dark) */
   --ft_color: #F1B2CE; /* цвет шрифта на странице (по умолчанию для темы - dark) */
   --bg_color: #000028; /* цвет фона на странице (по умолчанию для темы - dark) */
